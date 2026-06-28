@@ -1,0 +1,201 @@
+
+
+<!-- THE AFTER CODE  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Cards</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f6f7fb;
+            --surface: #ffffff;
+            --text: #18202f;
+            --muted: #647084;
+            --line: #e7eaf0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --success: #12805c;
+            --shadow: 0 18px 45px rgba(24, 32, 47, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 32px 16px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .pricing-section {
+            width: min(100%, 960px);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(24, 32, 47, 0.08);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37, 99, 235, 0.35);
+            box-shadow: var(--shadow);
+        }
+
+        .title {
+            margin: 0 0 10px;
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .price {
+            margin: 0 0 22px;
+            color: var(--success);
+            font-size: 28px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .price span {
+            color: var(--muted);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .features {
+            flex: 1;
+            margin: 0 0 24px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .features li {
+            display: flex;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+            line-height: 1.35;
+        }
+
+        .features li::before {
+            content: "\2713";
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .btn {
+            width: 100%;
+            min-height: 44px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--accent);
+            color: #ffffff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 160ms ease, transform 160ms ease;
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid rgba(37, 99, 235, 0.28);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                align-items: start;
+                padding-top: 20px;
+            }
+
+            .pricing-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="pricing-section" aria-label="Pricing plans">
+        <div class="pricing-grid" id="pricingGrid"></div>
+    </main>
+
+    <script>
+        const plans = [
+            {
+                title: "Basic Plan",
+                price: "$9.99",
+                interval: "month",
+                features: ["1 GB Storage", "Basic Support", "All Core Features"]
+            },
+            {
+                title: "Pro Plan",
+                price: "$19.99",
+                interval: "month",
+                features: ["10 GB Storage", "Priority Support", "Advanced Reports"]
+            },
+            {
+                title: "Team Plan",
+                price: "$39.99",
+                interval: "month",
+                features: ["50 GB Storage", "Team Management", "Dedicated Support"]
+            }
+        ];
+
+        function Card(title, price, features, interval = "month") {
+            const card = document.createElement("article");
+            card.className = "pricing-card";
+
+            const featureItems = features.map((feature) => `<li>${feature}</li>`).join("");
+
+            card.innerHTML = `
+        <h2 class="title">${title}</h2>
+        <p class="price">${price} <span>/ ${interval}</span></p>
+        <ul class="features">${featureItems}</ul>
+        <button class="btn" type="button">Start Trial</button>
+      `;
+
+            return card;
+        }
+
+        const pricingGrid = document.querySelector("#pricingGrid");
+        plans.forEach((plan) => {
+            pricingGrid.append(Card(plan.title, plan.price, plan.features, plan.interval));
+        });
+    </script>
+</body>
+
+</html>

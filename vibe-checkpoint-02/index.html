@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="gallery-header fade-in">
+        <div>
+          <p class="eyebrow">New collection</p>
+          <h1>Featured Tech Essentials</h1>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb"></span>
+          </span>
+          <span class="toggle-label">Dark</span>
+        </button>
+      </header>
+
+      <section class="product-grid" aria-label="Product gallery">
+        <article class="product-card fade-in" style="--delay: 120ms">
+          <div class="product-media product-media--headphones" role="img" aria-label="Wireless headphones"></div>
+          <div class="product-copy">
+            <p class="category">Audio</p>
+            <h2>AeroBand Pro</h2>
+            <p>Adaptive comfort, studio-tuned sound, and a battery made for long-haul focus.</p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$249</span>
+            <button type="button">View</button>
+          </div>
+        </article>
+
+        <article class="product-card fade-in" style="--delay: 240ms">
+          <div class="product-media product-media--speaker" role="img" aria-label="Compact smart speaker"></div>
+          <div class="product-copy">
+            <p class="category">Home</p>
+            <h2>Pulse Mini</h2>
+            <p>Room-filling sound and responsive voice control in a compact woven shell.</p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$129</span>
+            <button type="button">View</button>
+          </div>
+        </article>
+
+        <article class="product-card fade-in" style="--delay: 360ms">
+          <div class="product-media product-media--watch" role="img" aria-label="Minimalist smartwatch"></div>
+          <div class="product-copy">
+            <p class="category">Wearable</p>
+            <h2>Loop Watch</h2>
+            <p>Daily health insights, clean notifications, and all-day tracking with a vivid band.</p>
+          </div>
+          <div class="card-footer">
+            <span class="price">$199</span>
+            <button type="button">View</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

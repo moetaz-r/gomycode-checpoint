@@ -1,0 +1,349 @@
+.App {
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+}
+
+/* Softer Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, 
+    rgba(180, 80, 20, 0.85) 0%, 
+    rgba(200, 120, 30, 0.85) 50%, 
+    rgba(180, 150, 0, 0.85) 100%);
+  backdrop-filter: blur(8px);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '🎬';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2.5rem;
+  opacity: 0.15;
+  animation: bounce 3s infinite;
+}
+
+.hero-section::after {
+  content: '⭐';
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 1.8rem;
+  opacity: 0.15;
+  animation: spin 4s infinite linear;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-section h1 {
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Cleaner Cards with Better Readability */
+.card {
+  background: linear-gradient(145deg, #1a1a1a, #252525) !important;
+  border: 1px solid #383838 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.6s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.movie-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent !important;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a) !important;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 
+    0 15px 30px rgba(180, 80, 20, 0.2),
+    0 0 0 1px rgba(180, 150, 0, 0.3) !important;
+  border-color: #b8941b !important;
+}
+
+.movie-card .card-title {
+  font-weight: 600;
+  color: #f5f5f5;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.movie-card .card-text {
+  color: #cccccc;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Cleaner Filter Section */
+.filter-card {
+  background: linear-gradient(135deg, rgba(35, 35, 35, 0.95), rgba(50, 50, 50, 0.95)) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid #444 !important;
+  border-radius: 12px !important;
+}
+
+.filter-card .card-title {
+  color: #d4af37 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.filter-card .form-label {
+  color: #e8e8e8 !important;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Stats Dashboard */
+.stats-card {
+  background: linear-gradient(135deg, rgba(180, 80, 20, 0.08), rgba(200, 120, 30, 0.08)) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(180, 80, 20, 0.2) !important;
+  border-radius: 12px !important;
+}
+
+.stat-item h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+}
+
+.stat-item small {
+  color: #b0b0b0 !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Rating Stars */
+.rating-stars {
+  color: #d4af37;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.type-badge {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 16px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.genre-tag {
+  background: linear-gradient(135deg, #c55a11, #d67c1a);
+  color: #ffffff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  display: inline-block;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation */
+.navbar-dark {
+  background: linear-gradient(135deg, #151515, #24185a) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #d4af37 !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Softer Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #c55a11, #d67c1a);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(197, 90, 17, 0.3);
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #d67c1a, #e89c23);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(197, 90, 17, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #1e7b34, #25a244);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #25a244, #2bc255);
+  transform: translateY(-1px);
+}
+
+/* Improved Form Elements */
+.form-control, .form-select {
+  background: rgba(45, 45, 45, 0.8);
+  border: 1px solid #555;
+  color: #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus, .form-select:focus {
+  background: rgba(55, 55, 55, 0.9);
+  border-color: #d4af37;
+  color: #ffffff;
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.input-group-text {
+  background: linear-gradient(135deg, #c55a11, #d67c1a);
+  border: 1px solid #555;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #151515, #0a0a0a) !important;
+  border-top: 1px solid #d4af37;
+}
+
+footer h6 {
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+footer .text-muted {
+  color: #999 !important;
+}
+
+/* Responsive Design with Better Typography */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .movie-card:hover {
+    transform: translateY(-4px) scale(1.005);
+  }
+  
+  .stat-item h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+  
+  .movie-card .card-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* No Movies State */
+.no-movies {
+  background: linear-gradient(135deg, rgba(35, 35, 35, 0.9), rgba(50, 50, 50, 0.9)) !important;
+  backdrop-filter: blur(8px);
+  border: 2px dashed #d4af37 !important;
+  border-radius: 12px;
+}
+
+.no-movies h3 {
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+.no-movies p {
+  color: #b0b0b0;
+  font-size: 1rem;
+}
+
+/* Badge Improvements */
+.badge {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* Text Contrast Improvements */
+.text-light {
+  color: #f5f5f5 !important;
+}
+
+.text-muted {
+  color: #a0a0a0 !important;
+}
+
+/* Card Body Improvements */
+.card-body {
+  color: #e8e8e8;
+}
+
+.card-body .text-muted {
+  color: #909090 !important;
+}

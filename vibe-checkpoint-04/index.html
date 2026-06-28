@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow Todo App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="task-panel" aria-labelledby="app-title">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Task Tracker</p>
+          <h1 id="app-title">TaskFlow</h1>
+        </div>
+        <div class="task-stats" aria-live="polite">
+          <span id="completed-count">0</span>
+          <small>done</small>
+        </div>
+      </header>
+
+      <form id="task-form" class="task-form" autocomplete="off">
+        <label class="sr-only" for="task-input">Add a new task</label>
+        <input id="task-input" type="text" maxlength="120" placeholder="Add a focused task..." required>
+        <button type="submit" aria-label="Add task">Add</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" role="tablist" aria-label="Task filters">
+          <button class="filter-btn is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" type="button" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button class="filter-btn" type="button" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+        <span id="active-count" class="active-count">0 active</span>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">&#10003;</div>
+        <h2>No tasks here</h2>
+        <p>Add a task or switch filters to see your list.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
