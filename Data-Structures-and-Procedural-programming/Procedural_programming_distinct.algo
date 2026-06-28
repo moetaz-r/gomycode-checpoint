@@ -1,0 +1,120 @@
+                                  //PROBLEM1//
+
+ALGORITHM sum_distinct_element
+VAR
+   set1 : ARRAY_OF INTEGER //first set of element//
+   set2 : ARRAY_OF INTEGER//second set of element//
+   i,j : INTEGER // counters //
+   sum:INTEGER //  the sum of elements which are present in either of the given set //
+   found : BOOLEAN // verifying of the distinct elemnt //
+BEGIN
+//We need to find all numbers that appear in only one of the two sets (not in both) Then, sum those numbers//
+//Distinct elements = [4, 7, 2]//
+  Set1 := [3, 1, 7, 9] // insert from user//
+  Set2 := [2, 4, 1, 9, 3] // insert from user //
+  sum := 0
+// Comparing the elements of the first set with the second set //
+   FOR i FROM 0 TO set1.length STEP 1 DO
+      found := false
+      FOR j FROM 0 TO set2.length STEP 1  DO
+        IF (set1[i] = set2[j]) THEN
+            found := true
+            BREAK 
+        END_IF
+      END_FOR
+      //adding the element to the sum if it is not presnt  //
+      IF (found = false) THEN
+        sum := sum + set1[i]
+      END_IF
+   END_FOR
+   
+// Comparing the elements of the second set with the first set //
+   FOR i FROM 0 TO set1.length STEP 1 DO
+      found := false
+      FOR j FROM 0 TO set2.length STEP 1  DO
+        IF (set2[j] = set1[i]) THEN
+            found := true
+             BREAK 
+        END_IF
+      END_FOR
+      //adding the element to the sum if it is not presnt  //
+      IF (found = false) THEN
+        sum := sum + set2[j]
+      END_IF
+   END_FOR
+   
+   Write("The sum of the elements is ", sum);
+END
+
+                                 //PROBLEM2//
+    
+ // FIRST STEP IS calculates the variable ps, the dot(scalar) product of v1 and v2 (v1 and v2 are vectors of IR)
+PROCEDURE DOT_PRODUCT(V1:Array_of INTEGER, v2:Array of INTEGER)
+VAR
+    PS : INTEGER
+    i : INTEGER
+BEGIN
+ PS := 0      // Initialize the scalar product sum
+// Calculate the product of corresponding elements and add to the sum
+    FOR i FROM v1 TO v1.length STEP 1 DO
+         PS := PS + (v1[i] * v2[i])
+    END_FOR
+  Write (ps)    
+END
+
+// SECOND STEP IS algorithm which determines whether two vectors of given IR are orthogonal 
+
+ALGORITHM CHECK_ORTHOGONALITY_PROCEDURE 
+VAR
+  n,i : INTEGER // n is the number of pairs to check
+   v1, v2 :ARRAY_OF FLOAT 
+   PS :FLOAT // Variable to store the resulting dot product
+BEGIN
+   n := Length(PS)
+    Write ("Enter the number of vector pairs :")
+  READ(n)
+  For i from 1 to n STEP 1 Do // READ THE VECTORS 
+   DOT_PRODUCT (v1,v2,PS) //  // Call the procedure to calculate the dot product
+     // Check for orthogonality
+     IF (PS = 0 ) THEN
+      Write ("the vectors pair",i, the vectors are orthogonal)
+     Else
+     Write ("the vectors pair",i, the vectors are not orthogonal)
+     END_IF
+     END_FOR
+END
+
+//STEP 3 IS Modifying the previous algorithm buy using the dot_product function instead of a procedure
+FUNCTION DOT_PRODUCT(v1,v2 : ARRAY_OF FLOAT) : FLOAT
+VAR
+   i : INTEGER
+   PS_SUM : INTEGER
+BEGIN
+  PS_SUM  := 0
+  // Calculate the product of corresponding elements and add to the sum
+  FOR i FROM 0 TO v1.length STEP 1  DO
+   PS_SUM := PS_SUM + (V1[i] * v2[i])
+  END_FOR
+   Write (PS_SUM)
+END
+
+// STEP 4 IS THE MDIFIED ALGORITHM USING THE FUNCTION INSTEAD OF PROCEDURE
+ALGORITHM CHECK_ORTHOGONALITY_FUNCTION
+VAR
+   n,i : INTEGER // n is the number of pairs to check
+   v1, v2 :ARRAY_OF FLOAT 
+   Vector_product :FLOAT // Variable to store the resulting dot product
+BEGIN 
+ n := Length(Vector_product)
+  Write ("Enter the number of vector pairs :")
+  READ(n)
+FOR i FROM 1 TO n STEP 1  DO // READ THE VECTORS 
+  DOT_PRODUCT (v1,v2,PS) //  // Call the function to calculate the dot product
+     // Check for orthogonality
+     IF (PS = 0 ) THEN
+      Write ("the vectors pair",i, the vectors are orthogonal)
+     Else
+     Write ("the vectors pair",i, the vectors are not orthogonal)
+     END_IF
+END_FOR  
+END
