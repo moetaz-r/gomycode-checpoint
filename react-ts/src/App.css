@@ -1,0 +1,42 @@
+.App {
+  background: linear-gradient(135deg, #5e0559 0%, #a8bfe2 50%, #db5edb 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
+button {
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #003d99;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+p {
+  margin: 10px 0;
+  font-size: 30px;
+  color: #001a4d;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0 0 20px 0;
+  color: #001a4d;
+}

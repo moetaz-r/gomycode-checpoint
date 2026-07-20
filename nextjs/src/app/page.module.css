@@ -1,0 +1,16 @@
+ul .list {
+  display: flex;
+  list-style: none;
+  width: 500px;
+  justify-content: space-between;
+  padding: 30px;
+  font-style: italic;
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+.main {
+  text-align: center;
+  font-size: 70px;
+  padding: 190px;
+}
